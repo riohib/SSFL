@@ -214,14 +214,13 @@ If you use this code in your research, please cite our paper:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-<!-- ## Acknowledgments
+## Acknowledgments
 
 This work builds leverages concepts from:
 - **Importance Criterions**: [Neural Network Importance estimation](https://arxiv.org/abs/1906.10771), [SNIP](https://arxiv.org/abs/1810.02340), [FORCE](https://arxiv.org/abs/2006.09081)
 - **FedAvg**: [Federated Averaging algorithm](https://arxiv.org/abs/1602.05629)
 - **Dynamic FL**: [DisPFL](https://arxiv.org/abs/2206.00187)
-- The federated learning and neural network pruning communities -->
+- The federated learning and neural network pruning communities
 
 ## Contact
-
-For questions about the code or paper, please open an issue on GitHub or contact the authors.
+For questions about the code or paper, please open an issue on GitHub or contact the the corresponding authors.
