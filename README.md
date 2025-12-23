@@ -5,6 +5,8 @@
 
 **Authors:** Riyasat Ohib, Bishal Thapaliya, Gintare Karolina Dziugaite, Jingyu Liu, Vince D. Calhoun, Sergey Plis
 
+Code Coming soon!
+
 ## Abstract
 
 Sparse federated learning aims to reduce communication costs and computational overhead in distributed machine learning by training sparse neural networks. However, existing methods often generate masks using generic pruning techniques that do not account for the federated learning setting's unique challenges, such as non-IID data distributions and heterogeneous client capabilities. In this work, we propose **SSFL (Sparse Salient Federated Learning)**, a framework that leverages gradient-based saliency scores to identify and preserve the most important parameters for federated learning. Our method generates a global sparse mask shared across all clients using SNIP (Single-shot Network Pruning) saliency computation, enabling efficient communication while maintaining model performance. We demonstrate that SSFL achieves significant communication reduction (up to 70% sparsity) with minimal accuracy degradation compared to dense federated learning baselines. Additionally, we show that a warm-up training phase with dense masks before mask generation leads to improved final model quality.
