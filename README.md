@@ -56,35 +56,6 @@ Traditional federated learning transmits all model parameters, leading to high c
 - **Mask generation:** Top-k parameters by global saliency are selected to form the sparse mask
 - **Federated training:** Standard FedAvg aggregation with sparse parameter transmission
 
-## Results
-
-### Quantitative Performance
-
-Our method achieves **significant communication reduction** with minimal accuracy loss:
-
-#### CIFAR-10 (ResNet18, 100 clients, Non-IID α=0.3)
-
-| Method | Sparsity | Accuracy | Comm. Reduction |
-|--------|----------|----------|------------------|
-| **SSFL (Ours)** | 70% | **89.2%** | **70%** |
-| SSFL (50% sparse) | 50% | **90.1%** | **50%** |
-| SSFL (30% sparse) | 30% | **90.8%** | **30%** |
-| Random Global | 70% | 87.5% | 70% |
-| Dense Baseline | 0% | 91.2% | 0% |
-
-#### CIFAR-100 (ResNet18, 100 clients, Non-IID α=0.3)
-
-| Method | Sparsity | Accuracy | Comm. Reduction |
-|--------|----------|----------|------------------|
-| **SSFL (Ours)** | 70% | **62.3%** | **70%** |
-| Random Global | 70% | 59.8% | 70% |
-| Dense Baseline | 0% | 64.1% | 0% |
-
-**Key findings:**
-- **70% sparsity** with only 1-2% accuracy drop compared to dense training
-- **Superior to random baselines** across all sparsity levels
-- **Warm-up improves performance** by 0.5-1% on average
-- **Communication efficiency** scales linearly with sparsity level
 
 ## Installation
 
