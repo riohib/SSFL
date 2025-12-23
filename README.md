@@ -216,9 +216,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <!-- ## Acknowledgments
 
-This work builds upon concepts from:
-- **SNIP**: Single-shot Network Pruning based on connection sensitivity
-- **FedAvg**: Federated Averaging algorithm
+This work builds leverages concepts from:
+- **Importance Criterions**: [Neural Network Importance estimation](https://arxiv.org/abs/1906.10771), [SNIP](https://arxiv.org/abs/1810.02340), [FORCE](https://arxiv.org/abs/2006.09081)
+- **FedAvg**: [Federated Averaging algorithm](https://arxiv.org/abs/1602.05629)
+- **Dynamic FL**: [DisPFL](https://arxiv.org/abs/2206.00187)
 - The federated learning and neural network pruning communities -->
 
 ## Contact
