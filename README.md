@@ -1,6 +1,8 @@
 # SSFL: Discovering Unified Sparse Subspaces at Initialization for Efficient Federated Learning
 
-[![TMLR](https://img.shields.io/badge/Journal-TMLR-blue.svg)](https://openreview.net/group?id=TMLR)
+https://openreview.net/forum?id=kUZ6LhUB26
+
+[![TMLR](https://img.shields.io/badge/Journal-TMLR-blue.svg)](https://openreview.net/forum?id=kUZ6LhUB26)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Authors:** Riyasat Ohib, Bishal Thapaliya, Gintare Karolina Dziugaite, Jingyu Liu, Vince D. Calhoun, Sergey Plis
