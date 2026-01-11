@@ -34,7 +34,6 @@ Traditional federated learning transmits all model parameters, leading to high c
 **Our solution:** SSFL introduces a saliency-based approach where:
 - **Gradient-based saliency computation** (SNIP) identifies parameters most important for federated learning
 - **Global sparse mask** is shared across all clients, ensuring consistent sparsity
-- **Warm-up training** with dense masks improves mask quality before pruning
 - **Communication efficiency** is achieved through sparse parameter transmission
 
 ---
