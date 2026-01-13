@@ -198,7 +198,7 @@ SSFL_public/
 
 ## Citation
 
-If you use this code in your research, please cite our paper:
+If you find this work useful in your research, please cite our paper:
 
 ```bibtex
 @article{ohib2025communicationefficient,
