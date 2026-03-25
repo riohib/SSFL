@@ -1,0 +1,7 @@
+# Contains settings for the SSFL algorithm when mode=static.
+algorithm:
+  params: # Corresponds to AlgorithmSSFLConfig.params
+    mode: static
+    method: "ssfl"
+    initial_mask_freq: 0
+    warmup_rounds: 0  # Number of rounds to train with all-1's mask before pruning (0 = no warm-up)

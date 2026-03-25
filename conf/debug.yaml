@@ -1,0 +1,14 @@
+# conf/debug.yaml
+# Settings to override base.yaml for a quick debugging run.
+
+training:
+  comm_round: 5     # Only 5 rounds
+  epochs: 1         # Only 1 epoch per client
+  frac: 0.5         # Use more clients to test parallelism
+
+algorithm:
+  params:
+    initial_mask_freq: 2 # Trigger mask updates quickly
+
+wandb:
+  mode: "disabled"  # No need to log to wandb for a quick test

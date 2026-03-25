@@ -1,0 +1,6 @@
+# In conf/algorithm/mode/random_layerwise.yaml
+
+algorithm:
+  params:
+    mode: random_layerwise
+    warmup_rounds: 0  # Number of rounds to train with all-1's mask before pruning (0 = no warm-up)

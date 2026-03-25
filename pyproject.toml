@@ -1,0 +1,36 @@
+[project]
+name = "ssfl"
+version = "0.1.0"
+description = "Sparse Salient Federated Learning (SSFL) - Discovering Unified Sparse Subspaces at Initialization for Efficient Federated Learning"
+requires-python = ">=3.8"
+dependencies = [
+    # Core ML/DL libraries
+    "numpy",
+    # Note: torch and torchvision are installed separately with CUDA support in setup.sh
+    
+    # Experiment tracking and configuration
+    "wandb",
+    "omegaconf",
+    
+    # Utilities
+    "tqdm",
+    "pillow",  # For PIL (used by torchvision datasets)
+    "matplotlib",  # For plotting and visualization
+]
+
+[tool.setuptools]
+packages = [
+    "api",
+    "conf",
+    "data_preprocessing",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# NOTE: PyTorch with CUDA support needs special installation
+# Run this separately after creating the environment:
+# uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# Or for CUDA 12.8:
+# uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128

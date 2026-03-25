@@ -1,0 +1,11 @@
+# Contains default settings for the SSFL algorithm.
+algorithm:
+  name: ssfl
+  
+  params:
+    # Set the default SSFL mode here.
+    # The mode-specific YAML file (e.g., static.yaml) will override this.
+    mode: 'static'
+    method: 'ssfl'
+    initial_mask_freq: 0
+    warmup_rounds: 0  # Number of rounds to train with all-1's mask before pruning (0 = no warm-up)

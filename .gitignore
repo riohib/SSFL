@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Packaging (setuptools / editable install)
+dist/
+build/
+*.egg-info/
+
+# Virtual environment
+.venv/
+
+# Secrets and local env
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+.cursor
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Experiment tracking
+wandb/
+
+# Run artifacts
+*.log
+outputs/
+
+# dirs
+data/
+dataset/
+
+# Model checkpoints & dirs
+*.ckpt
+*.pt
+*.pth
+checkpoints/
+weights/
+analysis/
+jobs/
+scripts/
+.archived
+
+# OS
+.DS_Store
+Thumbs.db

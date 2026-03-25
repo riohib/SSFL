@@ -1,0 +1,7 @@
+# In conf/algorithm/mode/random_global.yaml
+
+# This structure tells OmegaConf exactly where to place the 'mode' key
+algorithm:
+  params:
+    mode: random_global
+    warmup_rounds: 0  # Number of rounds to train with all-1's mask before pruning (0 = no warm-up)

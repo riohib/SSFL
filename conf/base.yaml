@@ -1,0 +1,56 @@
+# This is the base configuration file.
+# It sets all common parameters and a default mode.
+
+algorithm:
+  name: 'ssfl' # Default algorithm
+  params:
+    mode: 'static' # Default SSFL mode
+
+# Optimizer-specific settings
+optimizer:
+  client_optimizer: "sgd"
+  lr: 0.1                      # The initial/max learning rate
+  lr_decay: 0.998              
+  momentum: 0.0
+  wd: 0.0005
+  scheduler: "default"  
+  scheduler_cycle_len: 10
+
+# Training group only contains FL loop settings
+training:
+  batch_size: 16
+  epochs: 1
+  comm_round: 2
+  frac: 0.5
+  client_num_in_total: 4
+  client_num_per_round: -1 # Calculated at runtime
+  frequency_of_the_test: 1
+  max_workers: 20  # If we don't have enough GPU memory, we need to set this to around 1 to 2.
+
+
+model:
+  name: resnet18
+  dense_ratio: 0.3
+  anneal_factor: 0.5
+  cs: 'v0'
+  itersnip_iteration: 1
+  erk_power_scale: 1.0
+
+dataset:
+  name: cifar10  # Change from cifar10 to cifar100
+  data_dir: ./dataset
+  partition_method: dir
+  partition_alpha: 0.3
+  public_portion: 0.0
+
+experiment:
+  seed: 1024
+  gpu: 0
+  ci: 0
+  tag: "test"
+  debug_mode: false
+
+wandb:
+  project: "ssfl-experiments"
+  exp_name: "test_exp1"
+  mode: "online"
