@@ -6,8 +6,6 @@
 **Authors:** Riyasat Ohib, Bishal Thapaliya, Gintare Karolina Dziugaite, Jingyu Liu, Vince D. Calhoun, Sergey Plis
 <br>
 
-### Code coming soon!
-
 ----
 
 ## Abstract
