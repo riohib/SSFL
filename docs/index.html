@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="SSFL discovers one shared sparse subnetwork before federated training and trains within it. Paper, method, results, and code.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SSFL: Discovering Sparse Unified Subnetworks">
+    <meta property="og:description" content="A shared sparse subnetwork discovered at initialization for efficient federated learning.">
+    <meta property="og:image" content="https://riohib.github.io/SSFL/assets/ssfl_framework.png">
+    <title>SSFL · Sparse Federated Learning</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <p class="venue">Transactions on Machine Learning Research · 2026</p>
+        <h1>SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning</h1>
+        <p class="authors">
+          <a href="https://riyasatohib.com/">Riyasat Ohib</a>,
+          Bishal Thapaliya,
+          Gintare Karolina Dziugaite,
+          Jingyu Liu,
+          Vince D. Calhoun,
+          Sergey Plis
+        </p>
+        <nav class="resource-links" aria-label="Paper resources">
+          <a href="https://openreview.net/forum?id=kUZ6LhUB26">Paper <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/riohib/SSFL">Reference code <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/flwrlabs/flower/pull/7900">Flower baseline PR <span aria-hidden="true">↗</span></a>
+          <a href="#citation">BibTeX <span aria-hidden="true">↓</span></a>
+        </nav>
+      </header>
+
+      <figure class="overview-figure">
+        <a href="assets/ssfl_framework.png" target="_blank" rel="noopener" aria-label="Open the SSFL method figure at full resolution">
+          <img src="assets/ssfl_framework.png" width="3379" height="1791" alt="Clients compute local saliency scores. The server combines the scores, selects a shared sparse mask, and sends it to clients for sparse local training.">
+        </a>
+        <figcaption>Each client measures parameter saliency using its own data. The server combines those scores to choose one mask, which every client uses for the rest of training. <a href="assets/ssfl_framework.png" target="_blank" rel="noopener">Open full-size figure</a>.</figcaption>
+      </figure>
+
+      <section aria-labelledby="overview-heading" class="reading-section">
+        <h2 id="overview-heading">Overview</h2>
+        <p>Federated learning can spend much of its time communicating model updates. Sparse training reduces the number of parameters sent, but changing the sparse pattern throughout training adds coordination work when clients have different data.</p>
+        <p><strong>Salient Sparse Federated Learning (SSFL)</strong> chooses a common sparse subnetwork before training begins. Clients contribute saliency scores computed on their local data; the server combines them and selects the active parameters. All clients then train and communicate updates within that same fixed subnetwork.</p>
+      </section>
+
+      <section aria-labelledby="method-heading" class="reading-section">
+        <h2 id="method-heading">How it works</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">01</span>
+            <h3>Discover the mask</h3>
+            <p>At initialization, each client scores model parameters using a minibatch of local data. The server takes a data-size-weighted average of the scores and keeps the highest-scoring parameters.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <h3>Train in one subnetwork</h3>
+            <p>The server broadcasts the resulting mask once. Clients train only the active weights, and sparse updates are aggregated within this shared parameter space.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="results-heading" class="reading-section">
+        <h2 id="results-heading">Results at a glance</h2>
+        <p>On ResNet-18 with a non-IID Dirichlet data partition, SSFL achieves the highest accuracy in the paper's comparison while communicating about half as much as the dense baseline.</p>
+        <div class="table-scroll">
+          <table>
+            <caption>Selected results from the paper, averaged over five runs. Sparse methods use 50% sparsity.</caption>
+            <thead><tr><th scope="col">Method</th><th scope="col">CIFAR-10 accuracy</th><th scope="col">CIFAR-100 accuracy</th><th scope="col">Communication</th></tr></thead>
+            <tbody>
+              <tr class="highlight-row"><th scope="row">SSFL</th><td data-label="CIFAR-10 accuracy">88.29%</td><td data-label="CIFAR-100 accuracy">61.37%</td><td data-label="Communication">223.4 MB</td></tr>
+              <tr><th scope="row">DisPFL (sparse)</th><td data-label="CIFAR-10 accuracy">85.12%</td><td data-label="CIFAR-100 accuracy">59.21%</td><td data-label="Communication">224.0 MB</td></tr>
+              <tr><th scope="row">FedAvg-FT (dense)</th><td data-label="CIFAR-10 accuracy">88.02%</td><td data-label="CIFAR-100 accuracy">59.42%</td><td data-label="Communication">446.9 MB</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The CIFAR-10 result corresponds to more than 20% lower classification error than DisPFL. In a geographically distributed deployment at 90% sparsity, SSFL also reduced mean aggregation time from 1.91 s to 0.82 s per round for a 1.73M-parameter model, a 2.3× speedup.</p>
+        <p class="small-note">Communication in the table uses the paper's values-only encoding assumption. See the <a href="https://openreview.net/forum?id=kUZ6LhUB26">paper</a> for variability, other baselines, datasets, and settings.</p>
+      </section>
+
+      <section aria-labelledby="code-heading" class="reading-section">
+        <h2 id="code-heading">Code</h2>
+        <p>The <a href="https://github.com/riohib/SSFL">reference implementation</a> contains the original SSFL experiments and instructions. A <a href="https://github.com/flwrlabs/flower/pull/7900">Flower Baseline contribution</a> with paper-scale CIFAR configurations is currently under review.</p>
+      </section>
+
+      <section id="citation" aria-labelledby="citation-heading" class="reading-section citation-section">
+        <h2 id="citation-heading">BibTeX</h2>
+        <pre><code id="bibtex">@article{ohib2026ssfl,
+  title={{SSFL}: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning},
+  author={Riyasat Ohib and Bishal Thapaliya and Gintare Karolina Dziugaite and Jingyu Liu and Vince D. Calhoun and Sergey Plis},
+  journal={Transactions on Machine Learning Research},
+  issn={2835-8856},
+  year={2026},
+  url={https://openreview.net/forum?id=kUZ6LhUB26}
+}</code></pre>
+      </section>
+    </main>
+    <footer>SSFL · <a href="https://openreview.net/forum?id=kUZ6LhUB26">TMLR 2026</a></footer>
+  </body>
+</html>

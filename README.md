@@ -1,4 +1,6 @@
-# SSFL: Discovering Unified Sparse Subnetworks at Initialization for Efficient Federated Learning
+# SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning
+
+[Project page](https://riohib.github.io/SSFL/) · [Paper](https://openreview.net/forum?id=kUZ6LhUB26) · [Flower baseline PR](https://github.com/flwrlabs/flower/pull/7900)
 
 [![TMLR](https://img.shields.io/badge/Journal-TMLR-blue.svg)](https://openreview.net/forum?id=kUZ6LhUB26) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
